@@ -1,0 +1,12 @@
+name: commitlint-pull-request-title
+author: Jonathan Häberle <jonathan.haeberle@gmail.com>
+description: Ensure your PR has a valid commit lint title.
+runs:
+  using: 'node12'
+  main: 'index.js'
+branding:
+  icon: 'shield'
+  color: 'green'
+inputs:
+  config:
+    description: "The commit lint configuration"
