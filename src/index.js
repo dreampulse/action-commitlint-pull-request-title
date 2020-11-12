@@ -1,3 +1,4 @@
+const fs = require('fs');
 const core = require('@actions/core');
 const github = require('@actions/github');
 const validatePrTitle = require('./validatePrTitle');
@@ -6,9 +7,12 @@ module.exports = async function run() {
   try {
     const client = new github.GitHub(process.env.GITHUB_TOKEN);
 
-    const config = process.env.INPUT_CONFIG;
+    // const config = process.env.INPUT_CONFIG;
 
-    core.info(`config ${config}`);
+    // core.info(`config ${config}`);
+
+    // const commitlint = fs.readFileSync('./commitlint.config');
+    core.info(`info: ${JSON.stringify(fs.readdirSync('.'))}`);
 
     const contextPullRequest = github.context.payload.pull_request;
     if (!contextPullRequest) {
