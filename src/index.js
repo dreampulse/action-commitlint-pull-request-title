@@ -11,8 +11,8 @@ module.exports = async function run() {
 
     // core.info(`config ${config}`);
 
-    const commitlint = fs.readFileSync('./commitlint.config');
-    core.info(`commitlint ${commitlint}`);
+    // const commitlint = fs.readFileSync('./commitlint.config');
+    core.info(`info: ${JSON.stringify(fs.readdirSync('.'))}`);
 
     const contextPullRequest = github.context.payload.pull_request;
     if (!contextPullRequest) {
