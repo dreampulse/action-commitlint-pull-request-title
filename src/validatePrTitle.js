@@ -1,11 +1,11 @@
-const conventionalCommitsConfig = require('conventional-changelog-conventionalcommits');
-const conventionalCommitTypes = require('conventional-commit-types');
-const parser = require('conventional-commits-parser').sync;
+const conventionalCommitsConfig = require("conventional-changelog-conventionalcommits");
+const conventionalCommitTypes = require("conventional-commit-types");
+const parser = require("conventional-commits-parser").sync;
 
 const defaultTypes = Object.keys(conventionalCommitTypes.types);
 
 module.exports = async function validatePrTitle(prTitle, types = defaultTypes) {
-  const {parserOpts} = await conventionalCommitsConfig();
+  const { parserOpts } = await conventionalCommitsConfig();
   const result = parser(prTitle, parserOpts);
 
   function printAvailableTypes() {
@@ -19,7 +19,7 @@ module.exports = async function validatePrTitle(prTitle, types = defaultTypes) {
 
         return bullet;
       })
-      .join('\n')}`;
+      .join("\n")}`;
   }
 
   if (!result.type) {

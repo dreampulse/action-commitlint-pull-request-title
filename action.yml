@@ -1,12 +1,15 @@
-name: commitlint-pull-request-title
+name: action-lint-pull-request-title
+description: This action runs your repositorie's commitlint config against your Pull Request titles
 author: Jonathan Häberle <jonathan.haeberle@gmail.com>
-description: Ensure your PR has a valid commit lint title.
 runs:
-  using: 'node12'
-  main: 'index.js'
-branding:
-  icon: 'shield'
-  color: 'green'
+  using: node16
+  main: dist/index.js
 inputs:
-  config:
-    description: "The commit lint configuration"
+  commitlintConfigFile:
+    description: The path to your local commitlint config file
+    required: false
+    default: ./commitlint.config.js
+  helpUrl:
+    description: Provide a help url for users of this action
+    required: false
+    default: https://www.conventionalcommits.org
